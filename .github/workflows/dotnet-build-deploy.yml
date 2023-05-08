@@ -22,12 +22,6 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
-      - name: Change directory
-        run: |
-          dir
-          cd demo-rest-api
-          dir
-      
       - name: Build with dotnet
         run: dotnet build D:\a\rest-api-demo\rest-api-demo\demo-rest-api.sln --configuration Release
 
@@ -59,5 +53,5 @@ jobs:
         with:
           app-name: 'rest-api-demo-cb'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EEEFB4C9E07E4332A3315843F93DF3FD }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EDE7C54E289445C08A568E334A926AE0 }}
           package: .
