@@ -32,7 +32,7 @@ jobs:
         run: dotnet build D:\a\demo-rest-api\demo-rest-api\demo-rest-api.sln --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish D:\a\demo-rest-api\angular-14-demo-app\demo-rest-api\demo-rest-api.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish D:\a\demo-rest-api\demo-rest-api\demo-rest-api.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
