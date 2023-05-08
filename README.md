@@ -16,7 +16,7 @@ The REST API can be run from Visual Studio and should be run first before starti
 The SQLite database is checked in with the code, but if required could be generated again by running the 'update-database' command from within Visual Studio.
 
 ## Deployment
-The REST API is automatically deployed to this URL:
+The REST API is automatically deployed to this URL via a yaml script included in this repository:
 - https://rest-api-demo-cb.azurewebsites.net/swagger/index.html
 
 The following applications make use of this API:
