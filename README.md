@@ -1,5 +1,8 @@
 # REST API Demo
 
+
+[![Build and deploy to Azure App Service](https://github.com/Birch101/rest-api-demo/actions/workflows/dotnet-build-deploy.yml/badge.svg)](https://github.com/Birch101/rest-api-demo/actions/workflows/dotnet-build-deploy.yml)
+
 ## Overview
 
 This is a simple REST API to allow film data to be created, read, updated and deleted. It consists of the following parts:
