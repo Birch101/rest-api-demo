@@ -53,11 +53,11 @@ namespace demo_rest_api.Entities
     public int? Metascore { get; set; }
 
     [Range(0, 10)]
-    public double? imdbRating { get; set; }
-    public int? imdbVotes { get; set; }
+    public double? ImdbRating { get; set; }
+    public int? ImdbVotes { get; set; }
 
     [MaxLength(50)]
-    public string? imdbID { get; set; }
+    public string? ImdbID { get; set; }
 
     [Required]
     [MaxLength(20)]

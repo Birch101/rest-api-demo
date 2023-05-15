@@ -8,13 +8,10 @@ namespace demo_rest_api.Controllers
   [Route("films")]
   public class FilmController : ControllerBase
   {
-    private readonly ILogger<FilmController> _logger;
+    private readonly IFilmService _filmService;
 
-    private IFilmService _filmService;
-
-    public FilmController(ILogger<FilmController> logger, IFilmService filmService)
+    public FilmController(IFilmService filmService)
     {
-      _logger = logger;
       _filmService = filmService;
     }
 
