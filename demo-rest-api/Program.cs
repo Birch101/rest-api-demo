@@ -1,3 +1,4 @@
+using demo_rest_api.Middleware;
 using demo_rest_api.Repository;
 using demo_rest_api.Services;
 
@@ -33,6 +34,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseCors(allowedPolicy);

@@ -1,4 +1,3 @@
-using AutoMapper;
 using demo_rest_api.Context;
 using demo_rest_api.DTO;
 using demo_rest_api.Entities;
@@ -35,13 +34,18 @@ namespace demo_rest_api.Repository
             }
             else
             {
-                // remove images first as this is a foreign key
-                _filmContext.FilmImages.RemoveRange(film.Images);
+                try
+                {
+                    // remove images first as this is a foreign key
+                    _filmContext.FilmImages.RemoveRange(film.Images);
+                    _filmContext.Films.Remove(film);
 
-                _filmContext.Films.Remove(film);
-
-                // TODO: handle errors on save
-                _filmContext.SaveChanges();
+                    _filmContext.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Unable to save changes after delete.");
+                }
             }
         }
 
@@ -103,8 +107,14 @@ namespace demo_rest_api.Repository
             if (addedFilm == null || addedFilm.Entity == null)
                 throw new Exception("Film was not added successfully");
 
-            // TODO: handle errors on save
-            _filmContext.SaveChanges();
+            try
+            {
+                _filmContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Unable to save changes after add.");
+            }
 
             return addedFilm.Entity;
         }
@@ -129,8 +139,14 @@ namespace demo_rest_api.Repository
             {
                 _filmContext.Entry(updateFilm).CurrentValues.SetValues(film);
 
-                // TODO: handle errors on save
-                _filmContext.SaveChanges();
+                try
+                {
+                    _filmContext.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Unable to save changes after update.");
+                }
 
                 return updateFilm;
             }
